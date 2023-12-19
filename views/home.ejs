@@ -1,0 +1,32 @@
+<%- include("partials/header"); -%>
+
+
+<h1>Home</h1>
+
+<p><%= homeContentEjs %></p>
+
+<% posts.forEach(function(piece){ %>
+    <h2>
+        <%= piece.name %>
+    </h2>
+    <p>
+        <% if(piece.stuff.length>100){ %>
+            <% let short = piece.stuff.substring(0,100)+"..." %>
+            <%= short %>
+        <%  }else{ %>
+            <%= piece.stuff %>
+        <%  } %>
+        <a href="/posts/<%= encodeURIComponent(piece._id) %>">Read More</a>
+    </p>
+
+<% }); %>
+
+
+<!-- Trial code -->
+
+<!-- <button name="whatever">whatever</button> -->
+
+<!-- Trial code ends -->
+
+
+<%- include("partials/footer"); -%>
